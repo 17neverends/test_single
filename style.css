@@ -250,6 +250,10 @@ input[type="text"]:hover {
     background-color: #158e3a;
 }
 
+#confirm1 {
+    margin-bottom: 300px
+}
+
 
 .inputform {
     position: relative;
