@@ -46,10 +46,7 @@ to {
 
 
 
-button:hover  {
-    background-color: #1ab248;
-    color: white;
-}
+
 
 form {
     background-color: #fff;
@@ -129,7 +126,9 @@ input[type="text"] {
     align-items: center;
 }
 
- 
+#confirm1 {
+    margin-bottom: 300px;
+}
 
  #paymentCheckbox{
     -webkit-appearance: none;
@@ -172,6 +171,10 @@ input[type="text"] {
     margin-bottom: 20px;
 }
   
+
+#back_to_1 {
+    margin-bottom: 20px;
+}
 
 .status {
     min-height: 20px;
@@ -248,10 +251,6 @@ input[type="text"]:hover {
 
 .back:active {
     background-color: #158e3a;
-}
-
-#confirm1 {
-    margin-bottom: 300px
 }
 
 

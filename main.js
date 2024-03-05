@@ -167,6 +167,8 @@ function check_inputs_step1() {
     details = responseData.details;
 
     showDetailsOnPage();
+    document.getElementById('status1').innerText = '';
+
     sliderShowPoint(2);
     sliderpoint2.style.display = 'block';
 
@@ -577,9 +579,14 @@ function showDetailsOnPage() {
 
   details.forEach(detail => {
     const itemDiv = createDetailItem(detail);
+    if (detail.type === selectedType && detail.cost === selectedCost) {
+      itemDiv.classList.add("selected");
+      selectedDetail = itemDiv;
+    }
     detailsContainer.appendChild(itemDiv);
   });
 }
+
 
 
 
@@ -630,9 +637,13 @@ document.getElementById("confirm2").addEventListener("click", function () {
   } else {
       console.log(selectedType);
       data = calculatePackagesSum(gatherFormData());
+      star = false;
       initialTotalCost = calculateInitialCost();
       totalcost = initialTotalCost;
       updateCost();
+      var manualRadio = document.getElementById("manual");
+      manualRadio.checked = true;
+      document.getElementById('status2').innerText = '';
       sliderShowPoint(3);
       sliderpoint3.style.display = 'block';
 
@@ -938,7 +949,8 @@ function updateCost() {
       }
   } else {
       acsentToTheFloor.style.display = 'none';
-
+      status.innerText = '';
+      status.style.display = 'none';
       cost_6.innerText = '';
       floorLift.value = '';
       manualRadio.checked = false;
@@ -1175,7 +1187,7 @@ console.log(globalResult);
 }
 
 
-let star = false;
+let star;
 
 function calculateInitialCost() {
   let totalcost = 0;
@@ -1188,7 +1200,10 @@ function calculateInitialCost() {
   let status = document.getElementById('floor_status');
 
   if (weight < 30 || weight > 150){
+      status.innerText = '';
+      status.style.display = 'none';
       return 0;
+      
   } 
   const packageParts = packageType.split("-").map(part => part.trim().toLowerCase());
   console.log(packageParts);
